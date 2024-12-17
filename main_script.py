@@ -48,8 +48,8 @@ rgb_img = gray
 # predict the input rgb image:
 result = (yolo_model.predict(source=rgb_img,save=False,imgsz=640,conf=0.5,show=False))[0].boxes
 # print(result)
-xyxy = list(map(int,result.xyxy[5].tolist()))
-xywh = list(map(int,result.xywh[5].tolist()))
+xyxy = list(map(int,result.xyxy[0].tolist()))
+xywh = list(map(int,result.xywh[0].tolist()))
 image = cv2.rectangle(rgb_img, (xyxy[0],xyxy[1]), (xyxy[2],xyxy[3]), (0,0,255), 2)
 plt.imshow(image)
 plt.show()
